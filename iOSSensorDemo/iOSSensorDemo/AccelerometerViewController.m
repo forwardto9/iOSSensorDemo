@@ -115,7 +115,7 @@
             }
             
             if (![CMSensorRecorder isAuthorizedForRecording]) {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"加速计未许可！" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"加速计未许可(only iWatch use)！" preferredStyle:UIAlertControllerStyleAlert];
                 [self presentViewController:alert animated:NO completion:nil];
                 UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     [alert dismissViewControllerAnimated:YES completion:nil];
