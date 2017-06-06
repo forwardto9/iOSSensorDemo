@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipsLabel;
 @property (strong, nonatomic) UIAccelerometer *accelerometer;
 @property (strong, nonatomic) CMMotionManager *motionManager;
+@property (strong, nonatomic) CMSensorRecorder *recorder;
 
 @end
 
@@ -95,6 +96,58 @@
                 [alert addAction:cancel];
             }
             
+            
+            break;
+        }
+            case 2:
+        {
+            self.accelerometerXLabel.text = @"";
+            self.accelerometerYLabel.text = @"";
+            self.accelerometerZLabel.text = @"";
+            self.tipsLabel.text = @"From CMSensorRecorder(only iWatch)";
+            if (self.motionManager) {
+                [self.motionManager stopAccelerometerUpdates];
+                self.motionManager = nil;
+            }
+            if (self.accelerometer) {
+                self.accelerometer.delegate = nil;
+                self.accelerometer = nil;
+            }
+            
+            if (![CMSensorRecorder isAuthorizedForRecording]) {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"加速计未许可！" preferredStyle:UIAlertControllerStyleAlert];
+                [self presentViewController:alert animated:NO completion:nil];
+                UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [alert dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alert addAction:cancel];
+                
+                return;
+            } else {
+                if ([CMSensorRecorder isAccelerometerRecordingAvailable]) {
+                    self.recorder = [CMSensorRecorder new];
+                    [self.recorder recordAccelerometerForDuration:5];
+                    __weak typeof(self) weakSelf = self;
+                    [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
+                        //
+                        CMSensorDataList *list = [self.recorder accelerometerDataFromDate:[NSDate dateWithTimeIntervalSinceNow:5] toDate:[NSDate date]];
+                        for (CMRecordedAccelerometerData *data in list) {
+                            CMAcceleration acceleration = data.acceleration;
+                            weakSelf.accelerometerXLabel.text = [NSString stringWithFormat:@"%@%f", @"x:",acceleration.x];
+                            weakSelf.accelerometerYLabel.text = [NSString stringWithFormat:@"%@%f", @"y:",acceleration.y];
+                            weakSelf.accelerometerZLabel.text = [NSString stringWithFormat:@"%@%f", @"z:",acceleration.z];
+                        }
+                    }];
+                } else {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"加速计不可用！" preferredStyle:UIAlertControllerStyleAlert];
+                    [self presentViewController:alert animated:NO completion:nil];
+                    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        [alert dismissViewControllerAnimated:YES completion:nil];
+                    }];
+                    [alert addAction:cancel];
+                }
+
+            }
             
             break;
         }
