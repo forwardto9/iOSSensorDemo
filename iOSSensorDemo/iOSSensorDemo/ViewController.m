@@ -13,6 +13,7 @@
 #import "MagnetometerViewController.h"
 #import "PedometerViewController.h"
 #import "AltimeterViewController.h"
+#import "ThermalStateViewController.h"
 #import <CoreMotion/CoreMotion.h>
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -28,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.sensorNameTable registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellid"];
-    self.names = @[@"距离传感器", @"加速计",@"磁力计",@"陀螺仪",@"计步器", @"测高仪", @"GPS"];
+    self.names = @[@"距离传感器", @"加速计",@"磁力计",@"陀螺仪",@"计步器", @"测高仪", @"GPS", @"温度情况"];
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Start" style:UIBarButtonItemStylePlain target:self action:@selector(startActivity:)];
     self.navigationItem.rightBarButtonItem = rightItem;
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"Stop" style:UIBarButtonItemStylePlain target:self action:@selector(stopActivity:)];
@@ -147,6 +148,15 @@
             AltimeterViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"AltimeterViewController"];
             [self.navigationController pushViewController:pvc animated:YES];
             break;
+        }
+        case 6:
+        {
+            //
+        }
+        case 7:
+        {
+            ThermalStateViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"ThermalStateViewController"];
+            [self.navigationController pushViewController:pvc animated:YES];
         }
         default:
             break;

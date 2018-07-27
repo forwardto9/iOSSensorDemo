@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nuJ-PU-NVI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nuJ-PU-NVI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -154,10 +155,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDL-12-HTe">
-                                <rect key="frame" x="164" y="28" width="46" height="30"/>
+                                <rect key="frame" x="170" y="28" width="34" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Xev-mL-OjO"/>
-                                    <constraint firstAttribute="width" constant="46" id="aes-yL-JwT"/>
                                 </constraints>
                                 <state key="normal" title="Start"/>
                                 <connections>
@@ -221,9 +221,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfa-46-4SM">
-                                <rect key="frame" x="164.5" y="20" width="46" height="30"/>
+                                <rect key="frame" x="170.5" y="20" width="34" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="ZOH-iz-G4v"/>
                                     <constraint firstAttribute="height" constant="30" id="hbF-Qz-0EZ"/>
                                 </constraints>
                                 <state key="normal" title="Start"/>
@@ -270,9 +269,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lht-OC-j5r">
-                                <rect key="frame" x="164.5" y="20" width="46" height="30"/>
+                                <rect key="frame" x="170.5" y="20" width="34" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="Lew-fs-znN"/>
                                     <constraint firstAttribute="height" constant="30" id="fd5-L6-ViF"/>
                                 </constraints>
                                 <state key="normal" title="Start"/>
@@ -317,9 +315,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9d-Gd-2Ow">
-                                <rect key="frame" x="165" y="20" width="46" height="30"/>
+                                <rect key="frame" x="171" y="20" width="34" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="6kW-Im-kwh"/>
                                     <constraint firstAttribute="height" constant="30" id="L1l-mE-dws"/>
                                 </constraints>
                                 <state key="normal" title="Start"/>
@@ -354,6 +351,39 @@
             </objects>
             <point key="canvasLocation" x="3985" y="804"/>
         </scene>
+        <!--Thermal State View Controller-->
+        <scene sceneID="850-AT-cgQ">
+            <objects>
+                <viewController storyboardIdentifier="ThermalStateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5Yb-bm-gNt" customClass="ThermalStateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B35-0h-Kym"/>
+                        <viewControllerLayoutGuide type="bottom" id="u6Q-Dx-1eB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vic-yH-zmN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6Y-U5-GgW">
+                                <rect key="frame" x="166.5" y="323" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h6Y-U5-GgW" firstAttribute="centerX" secondItem="vic-yH-zmN" secondAttribute="centerX" id="90O-hh-EAO"/>
+                            <constraint firstItem="h6Y-U5-GgW" firstAttribute="centerY" secondItem="vic-yH-zmN" secondAttribute="centerY" id="FDY-3I-1pl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stateLabel" destination="h6Y-U5-GgW" id="FJ3-IQ-xY6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctV-y0-Lap" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4628" y="801.94902548725645"/>
+        </scene>
         <!--Distance View Controller-->
         <scene sceneID="y4Z-Cf-qkE">
             <objects>
@@ -378,7 +408,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nuJ-PU-NVI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cuy-eL-cQc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
